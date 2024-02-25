@@ -1,12 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://i0khcjedvyvu"]
+[gd_scene load_steps=7 format=3 uid="uid://i0khcjedvyvu"]
 
 [ext_resource type="Texture2D" uid="uid://ctujxe4fj066r" path="res://Art/DarkBackground.png" id="1_ikfm5"]
 [ext_resource type="PackedScene" uid="uid://fme0w1vfksm" path="res://Scenes/player.tscn" id="2_bquyq"]
 [ext_resource type="PackedScene" uid="uid://pg5evkyxertt" path="res://Scenes/platform.tscn" id="3_o4gbq"]
+[ext_resource type="Script" path="res://Scripts/Path2D.gd" id="4_xo5s4"]
+[ext_resource type="PackedScene" uid="uid://ccr8pvxgsr46a" path="res://Scenes/platform_follow_path.tscn" id="5_4mm2g"]
 
 [sub_resource type="Curve2D" id="Curve2D_xr4c8"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 3, -74, 0, 0, 0, 0, 345, -74)
+"points": PackedVector2Array(0, 0, 0, 0, 1, -1, 0, 0, 0, 0, 351, -1)
 }
 point_count = 2
 
@@ -20,10 +22,33 @@ scale = Vector2(23.4375, 40.875)
 texture = ExtResource("1_ikfm5")
 
 [node name="Player" parent="Game" instance=ExtResource("2_bquyq")]
-position = Vector2(165, 395)
+position = Vector2(214, 422)
 
 [node name="Platform" parent="Game" instance=ExtResource("3_o4gbq")]
-position = Vector2(170, 471)
+position = Vector2(216, 462)
+
+[node name="Platform2" parent="Game" instance=ExtResource("3_o4gbq")]
+position = Vector2(84, 367)
+
+[node name="Platform3" parent="Game" instance=ExtResource("3_o4gbq")]
+position = Vector2(247, 274)
+
+[node name="Platform4" parent="Game" instance=ExtResource("3_o4gbq")]
+position = Vector2(118, 135)
 
 [node name="Path2D" type="Path2D" parent="Game"]
+position = Vector2(0, -66)
 curve = SubResource("Curve2D_xr4c8")
+script = ExtResource("4_xo5s4")
+platform_scene = ExtResource("5_4mm2g")
+metadata/_edit_group_ = true
+
+[node name="Timer" type="Timer" parent="Game/Path2D"]
+wait_time = 2.0
+autostart = true
+
+[node name="PlatformFollowPath" parent="Game/Path2D" instance=ExtResource("5_4mm2g")]
+position = Vector2(1, -1)
+rotates = false
+
+[connection signal="timeout" from="Game/Path2D/Timer" to="Game/Path2D" method="_on_timer_timeout"]
