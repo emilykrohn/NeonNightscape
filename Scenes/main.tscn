@@ -1,5 +1,12 @@
-[gd_scene format=3 uid="uid://i0khcjedvyvu"]
+[gd_scene load_steps=2 format=3 uid="uid://i0khcjedvyvu"]
+
+[ext_resource type="Texture2D" uid="uid://ctujxe4fj066r" path="res://Art/DarkBackground.png" id="1_ikfm5"]
 
 [node name="Main" type="Node2D"]
 
 [node name="Game" type="Node2D" parent="."]
+
+[node name="Background" type="Sprite2D" parent="Game"]
+position = Vector2(182, 317)
+scale = Vector2(23.75, 40.625)
+texture = ExtResource("1_ikfm5")
