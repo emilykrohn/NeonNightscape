@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://pg5evkyxertt"]
+[gd_scene load_steps=4 format=3 uid="uid://pg5evkyxertt"]
 
+[ext_resource type="Script" path="res://Scripts/platform.gd" id="1_jyk7u"]
 [ext_resource type="Texture2D" uid="uid://2535nf5njlxn" path="res://Art/Platform.png" id="1_rknin"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vh5ci"]
 size = Vector2(96, 16.5)
 
 [node name="Platform" type="StaticBody2D"]
+script = ExtResource("1_jyk7u")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -4.61)
