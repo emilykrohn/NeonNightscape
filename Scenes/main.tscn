@@ -7,6 +7,6 @@
 [node name="Game" type="Node2D" parent="."]
 
 [node name="Background" type="Sprite2D" parent="Game"]
-position = Vector2(182, 317)
-scale = Vector2(23.75, 40.625)
+position = Vector2(189, 322.5)
+scale = Vector2(24.625, 41.3125)
 texture = ExtResource("1_ikfm5")
