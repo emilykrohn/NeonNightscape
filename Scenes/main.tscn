@@ -1,8 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://i0khcjedvyvu"]
+[gd_scene load_steps=5 format=3 uid="uid://i0khcjedvyvu"]
 
 [ext_resource type="Texture2D" uid="uid://ctujxe4fj066r" path="res://Art/DarkBackground.png" id="1_ikfm5"]
 [ext_resource type="PackedScene" uid="uid://fme0w1vfksm" path="res://Scenes/player.tscn" id="2_bquyq"]
 [ext_resource type="PackedScene" uid="uid://pg5evkyxertt" path="res://Scenes/platform.tscn" id="3_o4gbq"]
+
+[sub_resource type="Curve2D" id="Curve2D_xr4c8"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 3, -74, 0, 0, 0, 0, 345, -74)
+}
+point_count = 2
 
 [node name="Main" type="Node2D"]
 
@@ -18,3 +24,6 @@ position = Vector2(165, 395)
 
 [node name="Platform" parent="Game" instance=ExtResource("3_o4gbq")]
 position = Vector2(170, 471)
+
+[node name="Path2D" type="Path2D" parent="Game"]
+curve = SubResource("Curve2D_xr4c8")
