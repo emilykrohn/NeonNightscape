@@ -23,6 +23,7 @@ texture = ExtResource("1_ikfm5")
 
 [node name="Player" parent="Game" instance=ExtResource("2_bquyq")]
 position = Vector2(214, 422)
+lock_rotation = true
 
 [node name="Platform" parent="Game" instance=ExtResource("3_o4gbq")]
 position = Vector2(216, 462)
